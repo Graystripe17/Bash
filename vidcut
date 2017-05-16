@@ -1,0 +1,12 @@
+#!/bin/bash
+
+url="$1"
+start_seconds="$2"
+end_seconds="$3"
+
+resulting_file=$(youtube-dl --get-filename $url)
+
+
+ffmpeg -i $resulting_file $start_seconds -c copy -t $end_seconds $resulting_file
+
+
